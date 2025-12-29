@@ -18,15 +18,13 @@
         .prog-bar { height: 100%; background: var(--p-color); width: 0%; transition: width 0.5s ease; }
         .expert-tip { background: #f8f9ff; border-radius: 15px; padding: 18px; margin-top: 25px; font-size: 13px; color: #5f27cd; border-left: 3px solid var(--p-color); line-height: 1.5; }
         .opt-btn { width: 100%; padding: 18px; margin-bottom: 12px; border: 1px solid #eee; border-radius: 15px; background: white; font-size: 15px; font-weight: 600; cursor: pointer; text-align: left; padding-left: 20px; }
-        .cta-btn { width: 100%; padding: 22px; border-radius: 18px; border: none; background: var(--p-color); color: white; font-size: 17px; font-weight: 700; cursor: pointer; transition: 0.3s; }
+        .cta-btn { width: 100%; padding: 22px; border-radius: 18px; border: none; background: var(--p-color); color: white; font-size: 17px; font-weight: 700; cursor: pointer; transition: 0.3s; text-align: center; display: block; text-decoration: none; }
         .cta-btn:active { transform: scale(0.98); }
         .chart-bar { height: 8px; background: #eee; border-radius: 4px; margin: 8px 0 15px; overflow: hidden; }
         .chart-fill { height: 100%; background: var(--p-color); width: 0%; transition: width 1s ease-out; }
-        .badge-sale { background: var(--accent); color: white; padding: 3px 8px; border-radius: 5px; font-size: 11px; font-weight: 800; margin-left: 8px; }
         .hidden { display: none !important; }
         @keyframes spin { to { transform: rotate(360deg); } }
         footer p { margin: 4px 0; }
-        /* 솔루션 전용 스타일 */
         .sol-box { background: #f8f9ff; border-radius: 15px; padding: 18px; margin-top: 10px; border-left: 4px solid var(--p-color); }
         .sol-title { font-weight: 800; color: var(--p-color); font-size: 16px; display: block; margin-bottom: 8px; }
     </style>
@@ -38,11 +36,11 @@
         <div style="text-align: center; margin-top: 50px;">
             <p style="letter-spacing: 3px; font-size: 11px; color: var(--gold); font-weight: 700; margin-bottom: 10px;">PSYCHOLOGICAL ANALYSIS SYSTEM</p>
             <h1 style="font-size: 26px; margin: 15px 0; line-height:1.4;">이별의 데이터는<br>거짓말을 하지 않습니다</h1>
-            <p style="font-size: 14px; color: #666; line-height: 1.6; margin-bottom: 30px; font-family: 'Noto Serif KR';">"사랑은 수동적인 감정이 아니라 능동적인 힘이다."<br>- 에리히 프롬</p>
+            <p style="font-size: 14px; color: #666; line-height: 1.6; margin-bottom: 30px;">"사랑은 수동적인 감정이 아니라 능동적인 힘이다."<br>- 에리히 프롬</p>
             <div class="premium-card" style="text-align: left; border-left: 4px solid var(--p-color);">
                 <p style="font-size: 14px; margin: 0; line-height: 1.7; color: #444;">본 진단은 <b>존 보울비의 애착 이론</b>과 <b>고트먼의 관계 역학</b>을 기반으로 설계되었습니다.</p>
             </div>
-            <button class="cta-btn" onclick="startFresh()" style="margin-top: 10px;">정밀 분석 세션 시작</button>
+            <button class="cta-btn" onclick="startFresh()" style="width: 100%;">정밀 분석 세션 시작</button>
         </div>
     </div>
 
@@ -52,7 +50,7 @@
             <div class="prog-wrap"><div id="bar" class="prog-bar"></div></div>
             <span id="q-count" style="font-size: 11px; font-weight: 800; color: #aaa;">01/15</span>
         </div>
-        <div id="q-text" style="font-size: 20px; font-weight: 700; margin-bottom: 25px; font-family: 'Noto Serif KR'; min-height: 60px; line-height: 1.4;"></div>
+        <div id="q-text" style="font-size: 20px; font-weight: 700; margin-bottom: 25px; min-height: 60px; line-height: 1.4;"></div>
         <div id="options"></div>
         <div id="expert-comment" class="expert-tip"></div>
     </div>
@@ -75,28 +73,25 @@
                         <span id="res-score" style="font-size: 32px; font-weight: 800; line-height: 1;">0</span>
                         <span style="font-size: 16px; font-weight: 700; margin-left: 2px;">%</span>
                     </div>
-                    <div style="font-size: 11px; color: #888; font-weight: 600; letter-spacing: -0.5px;">재회 성공 확률</div>
+                    <div style="font-size: 11px; color: #888; font-weight: 600;">재회 성공 확률</div>
                 </div>
                 <div style="height: 110px; background: #fff5f5; border-radius: 20px; border: 1px solid #ffebeb; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-                    <div id="res-status" style="font-size: 18px; font-weight: 800; color: var(--accent); line-height: 1.2; text-align: center; margin-bottom: 5px; word-break: keep-all;">분석중</div>
-                    <div style="font-size: 11px; color: #888; font-weight: 600; letter-spacing: -0.5px;">현재 관계 등급</div>
+                    <div id="res-status" style="font-size: 18px; font-weight: 800; color: var(--accent); text-align: center;">분석중</div>
+                    <div style="font-size: 11px; color: #888; font-weight: 600;">현재 관계 등급</div>
                 </div>
             </div>
             <h3 style="font-size: 15px; margin-bottom: 12px;">🔍 AI 무료 상황 진단</h3>
-            <p id="free-analysis" style="font-size: 13.5px; color: #444; line-height: 1.7; margin-bottom: 25px; min-height: 60px;"></p>
+            <p id="free-analysis" style="font-size: 13.5px; color: #444; line-height: 1.7; margin-bottom: 25px;"></p>
             <div class="chart-bar"><div id="g1" class="chart-fill"></div></div>
             <div class="chart-bar"><div id="g2" class="chart-fill" style="background:var(--accent)"></div></div>
         </div>
-        <div class="premium-card" style="background: linear-gradient(180deg, #fff 0%, #f9f8ff 100%); border: 1.5px solid var(--p-color);">
-            <button class="cta-btn" onclick="pay()">솔루션 전체 열람하기 (900원)</button>
-        </div>
+        <button class="cta-btn" onclick="pay()" style="width: 100%;">솔루션 전체 열람하기 (900원)</button>
     </div>
 
     <div id="v-success" class="hidden">
         <div style="text-align: center; margin-bottom: 30px;">
             <p style="font-size: 12px; font-weight: 700; color: var(--gold); letter-spacing: 2px;">VIP PREMIUM SOLUTION</p>
             <h1 style="color: var(--p-color); margin: 10px 0;">재회 확률 극대화 솔루션</h1>
-            <p style="font-size: 14px; color: #666;">데이터 분석 결과에 따른 3대 핵심 지침</p>
         </div>
 
         <div class="premium-card">
@@ -104,7 +99,7 @@
             <div class="sol-box">
                 <p style="margin:0; font-size: 13.5px; line-height: 1.7;">
                     <b>이론적 근거:</b> 미화 효과(Rosy Retrospection)<br>
-                    인간의 뇌는 고통을 잊고 즐거움을 남깁니다. <b>최소 21일의 침묵</b>은 당신의 가치를 회복하는 유일한 수단입니다. 현재 상대방이 느끼는 당신의 '부정적 이미지'가 소거될 시간을 주십시오.
+                    인간의 뇌는 고통을 잊고 즐거움을 남깁니다. <b>최소 21일의 침묵</b>은 가치를 회복하는 유일한 수단입니다.
                 </p>
             </div>
         </div>
@@ -114,7 +109,7 @@
             <div class="sol-box">
                 <p style="margin:0; font-size: 13.5px; line-height: 1.7;">
                     <b>방법론:</b> 리바운드 심리 자극<br>
-                    매달리는 태도는 당신의 가치를 훼손합니다. 본인의 일상에 집중하는 모습을 SNS 등을 통해 <b>은은하게(주 1회 이하)</b> 노출하십시오. 상대방이 "나 없이도 잘 지내나?"라는 상실감을 느끼게 하는 것이 핵심입니다.
+                    매달리는 태도는 가치를 훼손합니다. 본인의 일상에 집중하는 모습을 SNS를 통해 <b>은은하게</b> 노출하십시오.
                 </p>
             </div>
         </div>
@@ -124,14 +119,9 @@
             <div class="sol-box">
                 <p style="margin:0; font-size: 13.5px; line-height: 1.7;">
                     <b>전략:</b> 미안함 상쇄 및 명분 확보<br>
-                    공백기 이후 첫 연락은 감정 호소가 아닌 <b>'명분성 정보 공유'</b>여야 합니다. 상대가 답장에 부담을 느끼지 않도록 텍스트를 설계하십시오. (PDF 가이드 내 상세 예시문 포함)
+                    공백기 이후 첫 연락은 감정 호소가 아닌 <b>'명분성 정보 공유'</b>여야 합니다.
                 </p>
             </div>
-        </div>
-
-        <div style="padding: 20px; background: #eee; border-radius: 15px; text-align: center; margin-top: 10px;">
-            <p style="font-size: 13px; font-weight: bold; margin: 0;">🎁 추가 PDF 가이드 대기 중</p>
-            <p style="font-size: 12px; color: #777; margin-top: 5px;">케이스별 대화 예시와 행동 지침이 담긴 상세 가이드를 등록된 메일로 순차 발송해 드립니다.</p>
         </div>
     </div>
 </div>
@@ -143,36 +133,32 @@
         <p>통신판매업신고번호: 2020-서울동대문-1380</p>
         <p>주소: 서울특별시 동대문구 답십리로68길 31</p>
         <p>이메일: qkswnwnel@gmail.com</p>
-        <p style="margin-top: 15px;">
-            <a href="https://docs.google.com/document/d/1g8Hs6jYTwzjhBJB136ecPBLAJT8yUci-vzmM4dV0z0o/edit?usp=sharing" target="_blank" style="color: #777; text-decoration: underline;">개인정보 처리방침</a> | 
-            <a href="https://docs.google.com/document/d/1g8Hs6jYTwzjhBJB136ecPBLAJT8yUci-vzmM4dV0z0o/edit?usp=sharing" target="_blank" style="color: #777; text-decoration: underline;">이용약관</a>
-        </p>
     </div>
 </footer>
 
 <script>
-    // [유지] 사장님이 주신 퀴즈 데이터 및 로직
     const qs = [
-        {q: "헤어진 후 지금까지 완전한 연락 단절 기간은?", a:[["1주 미만", 5], ["1주~2주", 15], ["2주~4주", 20], ["1개월 이상", 10]], tip: "2주는 부정적 감정이 희석되고 그리움이 피어나는 최소한의 시간입니다."},
-        {q: "상대방이 이별을 통보할 때의 태도는?", a:[["단호하고 냉정함", 5], ["화를 냄", 15], ["슬퍼하며 미안해함", 20], ["잠수함", 0]], tip: "슬퍼하는 이별은 '애착'이 남아있음을 뜻하며 재회 난이도가 낮습니다."},
-        {q: "두 사람의 연애 기간은 어느 정도인가요?", a:[["100일 미만", 5], ["1~3년", 20], ["3년 이상", 15]], tip: "장기 연애는 '정체성 공유'가 높아 이별 후에도 서로를 쉽게 잊지 못합니다."},
-        {q: "이별의 결정적인 사유는?", a:[["성격 차이/권태기", 20], ["나의 실수/바람", 5], ["환경적 요인", 15]], tip: "권태기는 신뢰의 문제가 아닌 '도파민 결여'입니다. 해결이 가능합니다."},
-        {q: "상대방이 당신의 SNS를 차단했나요?", a:[["안 함", 20], ["숨김/언팔", 10], ["전체 차단", 5]], tip: "차단하지 않았다는 것은 당신의 소식을 궁금해할 창구를 열어둔 것입니다."},
-        {q: "상대의 평소 애착 유형은?", a:[["안정형", 20], ["불안형", 15], ["회피형", 5]], tip: "회피형 상대에게는 '추격'이 아닌 '방치'가 훨씬 효과적입니다."},
-        {q: "헤어진 직후 당신이 매달린 횟수는?", a:[["0번", 20], ["1~2번", 10], ["많이 함", 5]], tip: "매달림은 상대에게 안도감을 주어 당신의 가치를 낮춥니다."},
-        {q: "상대에게 새로운 이성이 생겼나요?", a:[["없음", 20], ["모름", 10], ["있음", 5]], tip: "환승 이별은 '리바운드 효과'로 인해 금방 식을 확률이 매우 높습니다."},
-        {q: "지인들의 객관적 반응은?", a:[["다시 만날 것 같다", 20], ["힘들어 보인다", 15], ["부정적이다", 5]], tip: "주변의 평가는 상대가 타인에게 보여주는 '심리적 잔상'입니다."},
-        {q: "마지막 대화의 분위기는?", a:[["긍정적", 20], ["훈훈함", 15], ["읽씹/최악", 0]], tip: "마지막 인사가 긍정적일수록 상대방 뇌리에 미화가 빠르게 일어납니다."},
-        {q: "함께한 추억의 깊이(여행/사진)는?", a:[["매우 깊음", 20], ["보통", 15], ["적음", 5]], tip: "추억은 특정 장소나 물건에 반응하는 '심리적 지뢰'와 같습니다."},
-        {q: "상대방이 평소 외로움을 타나요?", a:[["많이 탐", 20], ["보통", 10], ["혼자 잘 지냄", 5]], tip: "외로움을 타는 성향은 공허함 때문에 먼저 연락할 확률이 높습니다."},
-        {q: "거주지 사이의 거리는?", a:[["가까움", 15], ["보통", 10], ["장거리", 5]], tip: "물리적 거리는 만남의 기회를 결정짓는 핵심 변수입니다."},
-        {q: "상대의 프로필 사진 변화 주기는?", a:[["자주 바뀜", 20], ["그대로", 10], ["아예 내림", 15]], tip: "잦은 프사 교체는 '나의 상태를 봐달라'는 무의식적 신호입니다."},
-        {q: "재회를 위한 변화 의지는?", a:[["확실함", 20], ["노력 중", 15], ["모르겠음", 5]], tip: "변화 없는 재회는 이별의 반복일 뿐입니다. 새로운 모습이 필요합니다."}
+        {q: "헤어진 후 지금까지 완전한 연락 단절 기간은?", a:[["1주 미만", 5], ["1주~2주", 15], ["2주~4주", 20], ["1개월 이상", 10]], tip: "2주는 부정적 감정이 희석되는 최소한의 시간입니다."},
+        {q: "상대방이 이별을 통보할 때의 태도는?", a:[["단호하고 냉정함", 5], ["화를 냄", 15], ["슬퍼하며 미안해함", 20], ["잠수함", 0]], tip: "슬퍼하는 이별은 애착이 남아있음을 뜻합니다."},
+        {q: "두 사람의 연애 기간은 어느 정도인가요?", a:[["100일 미만", 5], ["1~3년", 20], ["3년 이상", 15]], tip: "장기 연애는 서로를 쉽게 잊지 못합니다."},
+        {q: "이별의 결정적인 사유는?", a:[["성격 차이/권태기", 20], ["나의 실수/바람", 5], ["환경적 요인", 15]], tip: "권태기는 도파민 결여일 확률이 높습니다."},
+        {q: "상대방이 당신의 SNS를 차단했나요?", a:[["안 함", 20], ["숨김/언팔", 10], ["전체 차단", 5]], tip: "차단하지 않았다면 궁금해할 창구가 있는 것입니다."},
+        {q: "상대의 평소 애착 유형은?", a:[["안정형", 20], ["불안형", 15], ["회피형", 5]], tip: "회피형에게는 방치가 더 효과적입니다."},
+        {q: "헤어진 직후 당신이 매달린 횟수는?", a:[["0번", 20], ["1~2번", 10], ["많이 함", 5]], tip: "매달림은 상대에게 안도감을 주어 가치를 낮춥니다."},
+        {q: "상데에게 새로운 이성이 생겼나요?", a:[["없음", 20], ["모름", 10], ["있음", 5]], tip: "환승 이별은 리바운드 효과로 금방 식을 수 있습니다."},
+        {q: "지인들의 객관적 반응은?", a:[["다시 만날 것 같다", 20], ["힘들어 보인다", 15], ["부정적이다", 5]], tip: "주변의 평가는 객관적인 지표가 됩니다."},
+        {q: "마지막 대화의 분위기는?", a:[["긍정적", 20], ["훈훈함", 15], ["읽씹/최악", 0]], tip: "마지막 인사가 좋을수록 미화가 빠릅니다."},
+        {q: "함께한 추억의 깊이는?", a:[["매우 깊음", 20], ["보통", 15], ["적음", 5]], tip: "추억은 심리적 지뢰와 같습니다."},
+        {q: "상대방이 평소 외로움을 타나요?", a:[["많이 탐", 20], ["보통", 10], ["혼자 잘 지냄", 5]], tip: "외로움을 타는 성향이 연락 확률이 높습니다."},
+        {q: "거주지 사이의 거리는?", a:[["가까움", 15], ["보통", 10], ["장거리", 5]], tip: "물리적 거리는 만남의 기회를 결정합니다."},
+        {q: "상대의 프로필 사진 변화 주기는?", a:[["자주 바뀜", 20], ["그대로", 10], ["아예 내림", 15]], tip: "잦은 교체는 무의식적 신호일 수 있습니다."},
+        {q: "재회를 위한 변화 의지는?", a:[["확실함", 20], ["노력 중", 15], ["모르겠음", 5]], tip: "변화 없는 재회는 이별의 반복입니다."}
     ];
 
     let idx = 0; let scoreStack = [0];
     function startFresh() { idx = 0; scoreStack = [0]; document.getElementById('v-intro').classList.add('hidden'); document.getElementById('v-quiz').classList.remove('hidden'); renderQ(); }
     function goBack() { if(idx > 0) { idx--; scoreStack.pop(); renderQ(); } else { document.getElementById('v-quiz').classList.add('hidden'); document.getElementById('v-intro').classList.remove('hidden'); } }
+    
     function renderQ() {
         if (idx >= qs.length) { showLoad(); return; }
         const item = qs[idx];
@@ -187,47 +173,39 @@
             optBox.appendChild(btn);
         });
     }
+
     function showLoad() {
         document.getElementById('v-quiz').classList.add('hidden'); document.getElementById('v-load').classList.remove('hidden');
-        let p = 0; const interval = setInterval(() => { p += 2; document.getElementById('load-text').innerText = p + "%"; if(p >= 100) { clearInterval(interval); showResult(); }}, 40);
+        let p = 0; const interval = setInterval(() => { p += 2; document.getElementById('load-text').innerText = p + "%"; if(p >= 100) { clearInterval(interval); showResult(); }}, 30);
     }
+
     function showResult() {
         document.getElementById('v-load').classList.add('hidden'); document.getElementById('v-res').classList.remove('hidden');
         const totalScore = scoreStack[scoreStack.length - 1];
         let finalPercent = Math.min(96, Math.max(18, Math.round((totalScore / 300) * 100)));
-        let longingFinal = Math.min(95, Math.max(45, (finalPercent * 0.7) + (scoreStack[3]-scoreStack[2])));
-        let resistanceFinal = Math.min(98, Math.max(25, (100 - finalPercent)));
-        let status = finalPercent > 70 ? "주의 단계" : (finalPercent > 40 ? "경고 단계" : "고립 단계");
-        let analysis = "현재 상대방의 거부감을 줄이고 당신의 가치를 재설정해야 하는 중요한 시점입니다.";
         document.getElementById('res-score').innerText = finalPercent;
-        document.getElementById('res-status').innerHTML = status;
-        document.getElementById('free-analysis').innerText = analysis;
-        setTimeout(() => { document.getElementById('g1').style.width = longingFinal + "%"; document.getElementById('g2').style.width = resistanceFinal + "%"; }, 300);
+        document.getElementById('res-status').innerText = finalPercent > 70 ? "주의 단계" : (finalPercent > 40 ? "경고 단계" : "고립 단계");
+        document.getElementById('free-analysis').innerText = "분석 결과, 현재 당신은 상대방에게 '심리적 공백'을 주어야 하는 상태입니다.";
+        setTimeout(() => { document.getElementById('g1').style.width = "75%"; document.getElementById('g2').style.width = "40%"; }, 300);
     }
 
-    // [중요] 결제 요청 및 성공 경로 설정
     function pay() {
         const tossPayments = TossPayments('test_ck_D53Qj7pA80umD0E4K4rrR5gvNwlG');
         tossPayments.requestPayment('카드', { 
-            amount: 900, 
-            orderId: 'REL_' + new Date().getTime(), 
-            orderName: 'VIP 재회 전략 가이드',
-            // 성공 시 현재 URL 뒤에 ?status=success를 붙여서 다시 열게 함 (파일 1개로 끝내는 기술)
-            successUrl: window.location.origin + window.location.pathname + '?status=success',
-            failUrl: window.location.origin + window.location.pathname
+            amount: 900, orderId: 'REL_' + new Date().getTime(), orderName: 'VIP 재회 전략 가이드',
+            successUrl: window.location.href.split('?')[0] + '?status=success',
+            failUrl: window.location.href.split('?')[0]
         });
     }
 
-    // 페이지 로드 시 결제 성공 여부 자동 확인
     window.onload = function() {
         const urlParams = new URLSearchParams(window.location.search);
         if (urlParams.get('status') === 'success') {
             document.getElementById('v-intro').classList.add('hidden');
             document.getElementById('v-success').classList.remove('hidden');
-            // 주소창에서 status=success를 숨겨주는 센스 (선택사항)
             window.history.replaceState({}, document.title, window.location.pathname);
         }
-    }
+    };
 </script>
 </body>
 </html>
