@@ -7,10 +7,10 @@
     <script src="https://js.tosspayments.com/v1/payment"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&family=Pretendard:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
-        :root { --p-color: #5f27cd; --gold: #d4af37; --bg: #fcfcfc; --text: #222; --accent: #ff4757; }
+        :root { --p-color: #5f27cd; --gold: #d4af37; --bg: #fcfcfc; --text: #222; --accent: #ff4757; --soft-bg: #f8f9ff; }
         body { margin: 0; font-family: 'Pretendard', sans-serif; background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; padding-bottom: env(safe-area-inset-bottom); }
         .container { padding: 25px; max-width: 450px; margin: 0 auto; min-height: 100vh; display: flex; flex-direction: column; box-sizing: border-box; }
-        h1, h2 { font-family: 'Noto Serif KR', serif; }
+        h1, h2, h3 { font-family: 'Noto Serif KR', serif; }
         .nav-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; height: 30px; }
         .back-btn { background: none; border: none; font-size: 14px; color: #aaa; cursor: pointer; padding: 0; display: flex; align-items: center; }
         .premium-card { background: #fff; border-radius: 24px; padding: 25px; border: 1px solid #f0f0f0; box-shadow: 0 10px 30px rgba(0,0,0,0.03); margin-bottom: 20px; position: relative; overflow: hidden; }
@@ -23,10 +23,14 @@
         .chart-bar { height: 8px; background: #eee; border-radius: 4px; margin: 8px 0 15px; overflow: hidden; }
         .chart-fill { height: 100%; background: var(--p-color); width: 0%; transition: width 1s ease-out; }
         .hidden { display: none !important; }
+        
+        /* 프리미엄 솔루션 커스텀 스타일 */
+        .sol-header { border-bottom: 2px solid var(--p-color); padding-bottom: 15px; margin-bottom: 25px; }
+        .step-tag { display: inline-block; background: var(--p-color); color: white; padding: 4px 10px; border-radius: 5px; font-size: 11px; font-weight: 800; margin-bottom: 10px; }
+        .sol-content { font-size: 14.5px; line-height: 1.8; color: #444; }
+        .highlight { color: var(--p-color); font-weight: 700; }
+        .action-box { background: #f0f2ff; padding: 15px; border-radius: 12px; margin-top: 15px; font-size: 13px; color: #555; }
         @keyframes spin { to { transform: rotate(360deg); } }
-        footer p { margin: 4px 0; }
-        .sol-box { background: #f8f9ff; border-radius: 15px; padding: 18px; margin-top: 10px; border-left: 4px solid var(--p-color); }
-        .sol-title { font-weight: 800; color: var(--p-color); font-size: 16px; display: block; margin-bottom: 8px; }
     </style>
 </head>
 <body>
@@ -80,48 +84,57 @@
                     <div style="font-size: 11px; color: #888; font-weight: 600;">현재 관계 등급</div>
                 </div>
             </div>
-            <h3 style="font-size: 15px; margin-bottom: 12px;">🔍 AI 무료 상황 진단</h3>
+            <h3 style="font-size: 15px; margin-bottom: 12px;">🔍 AI 상황 진단 브리핑</h3>
             <p id="free-analysis" style="font-size: 13.5px; color: #444; line-height: 1.7; margin-bottom: 25px;"></p>
             <div class="chart-bar"><div id="g1" class="chart-fill"></div></div>
-            <div class="chart-bar"><div id="g2" class="chart-fill" style="background:var(--accent)"></div></div>
+            <p style="font-size: 11px; color: #999; margin-top:-10px;">상대방의 심리적 거부감 지수</p>
         </div>
-        <button class="cta-btn" onclick="pay()" style="width: 100%;">솔루션 전체 열람하기 (900원)</button>
+        <button class="cta-btn" onclick="pay()" style="width: 100%;">솔루션 리포트 전체 열람 (900원)</button>
+        <p style="text-align: center; font-size: 12px; color: #aaa; margin-top: 15px;">* 결제 시 1회성 정밀 솔루션이 제공됩니다.</p>
     </div>
 
     <div id="v-success" class="hidden">
-        <div style="text-align: center; margin-bottom: 30px;">
-            <p style="font-size: 12px; font-weight: 700; color: var(--gold); letter-spacing: 2px;">VIP PREMIUM SOLUTION</p>
-            <h1 style="color: var(--p-color); margin: 10px 0;">재회 확률 극대화 솔루션</h1>
+        <div class="sol-header" style="text-align: center; margin-top: 20px;">
+            <p style="color: var(--gold); font-weight: 800; font-size: 11px; letter-spacing: 2px;">RELATION LAB EXCLUSIVE</p>
+            <h1 style="font-size: 24px; margin: 10px 0;">재회 성공을 위한<br><span style="color: var(--p-color);">3단계 마스터 플랜</span></h1>
         </div>
 
         <div class="premium-card">
-            <span class="sol-title">1단계: 프레임 재설계 (No Contact)</span>
-            <div class="sol-box">
-                <p style="margin:0; font-size: 13.5px; line-height: 1.7;">
-                    <b>이론적 근거:</b> 미화 효과(Rosy Retrospection)<br>
-                    인간의 뇌는 고통을 잊고 즐거움을 남깁니다. <b>최소 21일의 침묵</b>은 가치를 회복하는 유일한 수단입니다.
-                </p>
+            <span class="step-tag">STEP 01</span>
+            <h3 style="margin: 0 0 15px 0; font-size: 18px;">손실 혐오 심리 유발 (No Contact)</h3>
+            <div class="sol-content">
+                지금 당신의 가치는 상대에게 <span class="highlight">'언제든 잡을 수 있는 존재'</span>로 하락했습니다. 인간은 가질 수 없을 때 비로소 그 가치를 깨닫습니다.<br><br>
+                - <b>핵심 지침:</b> 앞으로 <span class="highlight">21일간</span> 모든 연락(SNS 좋아요 포함)을 차단하세요.<br>
+                - <b>심리적 효과:</b> 상대의 뇌에서 당신의 단점이 망각되고, '미화 효과'가 시작되는 골든타임입니다.
+            </div>
+            <div class="action-box">
+                <b>💡 행동 강령:</b> 상대가 연락을 먼저 하더라도, 최소 6시간 뒤에 아주 짧고 담백하게 답장하세요.
             </div>
         </div>
 
         <div class="premium-card">
-            <span class="sol-title">2단계: 가치 회복 및 간접 노출</span>
-            <div class="sol-box">
-                <p style="margin:0; font-size: 13.5px; line-height: 1.7;">
-                    <b>방법론:</b> 리바운드 심리 자극<br>
-                    매달리는 태도는 가치를 훼손합니다. 본인의 일상에 집중하는 모습을 SNS를 통해 <b>은은하게</b> 노출하십시오.
-                </p>
+            <span class="step-tag">STEP 02</span>
+            <h3 style="margin: 0 0 15px 0; font-size: 18px;">프레임 재설계 및 호기심 자극</h3>
+            <div class="sol-content">
+                상대방은 당신이 슬퍼하고 있을 것이라 확신합니다. 이 <span class="highlight">예측을 깨는 것</span>이 재회의 시작입니다.<br><br>
+                - <b>간접 노출:</b> SNS에 당신의 변화된 모습(새로운 취미, 밝은 표정)을 일주일에 딱 한 번만 노출하세요.<br>
+                - <b>주의사항:</b> 너무 과한 연출은 오히려 역효과를 줍니다. '나 없이도 잘 지내나?'라는 의구심만 주면 충분합니다.
             </div>
         </div>
 
         <div class="premium-card">
-            <span class="sol-title">3단계: 텍스트 테라피 (첫 연락)</span>
-            <div class="sol-box">
-                <p style="margin:0; font-size: 13.5px; line-height: 1.7;">
-                    <b>전략:</b> 미안함 상쇄 및 명분 확보<br>
-                    공백기 이후 첫 연락은 감정 호소가 아닌 <b>'명분성 정보 공유'</b>여야 합니다.
-                </p>
+            <span class="step-tag">STEP 03</span>
+            <h3 style="margin: 0 0 15px 0; font-size: 18px;">낮은 장벽의 첫 마디 (Text Therapy)</h3>
+            <div class="sol-content">
+                공백기가 끝난 후 첫 연락은 감정이 0.1%도 섞이지 않아야 합니다. 상대방이 <span class="highlight">답장하기 가장 편한 명분</span>을 찾아야 합니다.<br><br>
+                - <b>추천 메시지:</b> "예전에 추천해준 OO 식당 이름이 뭐였지? 지인이 물어봐서 갑자기 생각났네."<br>
+                - <b>성공 포인트:</b> 고마움이나 미안함 같은 무거운 감정은 배제하고, 가벼운 '질문' 형태여야 거부감이 없습니다.
             </div>
+        </div>
+        
+        <div style="text-align: center; padding: 20px 0 50px;">
+            <p style="font-size: 13px; color: #888; line-height: 1.6;">당신의 진심이 닿을 수 있도록,<br>Relation Lab이 끝까지 응원하겠습니다.</p>
+            <button class="cta-btn" onclick="location.reload()" style="background: #eee; color: #444; padding: 15px; font-size: 14px;">처음으로 돌아가기</button>
         </div>
     </div>
 </div>
@@ -185,21 +198,19 @@
         let finalPercent = Math.min(96, Math.max(18, Math.round((totalScore / 300) * 100)));
         document.getElementById('res-score').innerText = finalPercent;
         document.getElementById('res-status').innerText = finalPercent > 70 ? "주의 단계" : (finalPercent > 40 ? "경고 단계" : "고립 단계");
-        document.getElementById('free-analysis').innerText = "분석 결과, 현재 당신은 상대방에게 '심리적 공백'을 주어야 하는 상태입니다.";
-        setTimeout(() => { document.getElementById('g1').style.width = "75%"; document.getElementById('g2').style.width = "40%"; }, 300);
+        document.getElementById('free-analysis').innerText = "분석 결과, 현재 당신은 상대방에게 '심리적 공백'을 주어야 하는 상태입니다. 당신의 낮은 프레임이 회복되는 21일의 시간을 견디는 것이 재회의 핵심입니다.";
+        setTimeout(() => { document.getElementById('g1').style.width = (100 - finalPercent) + "%"; }, 300);
     }
 
     function pay() {
         try {
-            // [사장님용 고정 테스트 키]
             const clientKey = 'test_ck_5OWRapdA8dQJqmm7xLvP3o1zEqZK'; 
             const tossPayments = TossPayments(clientKey);
 
             tossPayments.requestPayment('카드', { 
                 amount: 900, 
                 orderId: 'REL_' + new Date().getTime(), 
-                orderName: 'VIP 재회 전략 가이드',
-                // [도메인 제약 우회를 위해 주소 체계를 상대 경로로 자동 빌드]
+                orderName: 'VIP 재회 전략 리포트',
                 successUrl: window.location.protocol + "//" + window.location.host + window.location.pathname + "?status=success",
                 failUrl: window.location.protocol + "//" + window.location.host + window.location.pathname
             }).catch(function (error) {
@@ -217,10 +228,7 @@
     window.onload = function() {
         const urlParams = new URLSearchParams(window.location.search);
         if (urlParams.get('status') === 'success') {
-            document.getElementById('v-intro').classList.add('hidden');
-            document.getElementById('v-quiz').classList.add('hidden');
-            document.getElementById('v-load').classList.add('hidden');
-            document.getElementById('v-res').classList.add('hidden');
+            document.getElementById('main-content').querySelectorAll('> div').forEach(el => el.classList.add('hidden'));
             document.getElementById('v-success').classList.remove('hidden');
             window.history.replaceState({}, document.title, window.location.pathname);
         }
