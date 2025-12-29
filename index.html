@@ -189,18 +189,16 @@
         setTimeout(() => { document.getElementById('g1').style.width = "75%"; document.getElementById('g2').style.width = "40%"; }, 300);
     }
 
-    // [수정된 pay 함수]
     function pay() {
         try {
-            // 발급받은 '테스트 클라이언트 키'를 여기에 정확히 입력하세요.
-            const clientKey = 'test_ck_D53Qj7pA80umD0E4K4rrR5gvNwlG'; 
+            // 요청하신 새 테스트 클라이언트 키를 적용했습니다.
+            const clientKey = 'test_ck_5OWRapdA8dQJqmm7xLvP3o1zEqZK'; 
             const tossPayments = TossPayments(clientKey);
 
             tossPayments.requestPayment('카드', { 
                 amount: 900, 
                 orderId: 'REL_' + new Date().getTime(), 
                 orderName: 'VIP 재회 전략 가이드',
-                // 도메인 유연성을 위해 origin 활용
                 successUrl: window.location.origin + window.location.pathname + '?status=success',
                 failUrl: window.location.origin + window.location.pathname
             }).catch(function (error) {
@@ -211,22 +209,18 @@
                 }
             });
         } catch (e) {
-            alert("결제 모듈 로드 실패. 관리자 센터에서 도메인 등록을 확인해주세요.");
+            alert("결제 시스템을 불러오는 중 오류가 발생했습니다.");
         }
     }
 
-    // [수정된 window.onload]
     window.onload = function() {
         const urlParams = new URLSearchParams(window.location.search);
         if (urlParams.get('status') === 'success') {
-            // 결제 성공 시 결과 화면이 아닌 솔루션 화면만 표시되도록 제어
             document.getElementById('v-intro').classList.add('hidden');
             document.getElementById('v-quiz').classList.add('hidden');
             document.getElementById('v-load').classList.add('hidden');
             document.getElementById('v-res').classList.add('hidden');
             document.getElementById('v-success').classList.remove('hidden');
-            
-            // 주소창에서 파라미터 제거
             window.history.replaceState({}, document.title, window.location.pathname);
         }
     };
