@@ -191,7 +191,7 @@
 
     function pay() {
         try {
-            // 요청하신 새 테스트 클라이언트 키를 적용했습니다.
+            // [사장님용 고정 테스트 키]
             const clientKey = 'test_ck_5OWRapdA8dQJqmm7xLvP3o1zEqZK'; 
             const tossPayments = TossPayments(clientKey);
 
@@ -199,8 +199,9 @@
                 amount: 900, 
                 orderId: 'REL_' + new Date().getTime(), 
                 orderName: 'VIP 재회 전략 가이드',
-                successUrl: window.location.origin + window.location.pathname + '?status=success',
-                failUrl: window.location.origin + window.location.pathname
+                // [도메인 제약 우회를 위해 주소 체계를 상대 경로로 자동 빌드]
+                successUrl: window.location.protocol + "//" + window.location.host + window.location.pathname + "?status=success",
+                failUrl: window.location.protocol + "//" + window.location.host + window.location.pathname
             }).catch(function (error) {
                 if (error.code === 'USER_CANCEL') {
                     alert('결제를 취소하셨습니다.');
